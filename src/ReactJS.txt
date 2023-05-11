@@ -1,0 +1,77 @@
+How To Install React Router:
+    npm install react-router-dom
+
+text.split(" ").filter((e)=>{return e.length!=0}).length:-
+
+filter function is a higher order method which returns a function here the returned function is a arrow function.
+If the length of the element is !=0 then it will be in the array otherwise it will not be in the array
+
+
+
+// When We Are Useing React Router Then all a will be replaced with Link and all href will be replaced 
+// with to
+// import { Link } from 'react-router-dom'
+// <a className="navbar-brand" href="/">{props.title}</a>
+// <Link className="navbar-brand" to="/">{props.title}</Link>
+// This is a React Router v6 app
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+
+
+For Dark Mode Enable:-
+const [myStyle, setMyStyle] = useState({
+    color: 'black',
+    backgroundColor: 'white',
+  })  
+  const toggleStyle = () =>
+  {
+    if (myStyle.color == 'white')
+    {
+      setMyStyle({
+
+          color: 'black',
+          backgroundColor: 'white'
+        })
+        setBtnText("Enable Dark Mode")  
+    }
+    else
+    {
+      setMyStyle({
+        color: 'white',
+        backgroundColor: 'black'
+      })
+      setBtnText("Enable Light Mode")
+    }
+  }
+  
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="users/*" element={<Users />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function Users() {
+  return (
+    <div>
+      <nav>
+        <Link to="me">My Profile</Link>
+      </nav>
+
+      <Routes>
+        <Route path=":id" element={<UserProfile />} />
+        <Route path="me" element={<OwnUserProfile />} />
+      </Routes>
+    </div>
+  );
+}
